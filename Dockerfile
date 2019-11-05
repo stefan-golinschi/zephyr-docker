@@ -86,7 +86,7 @@ RUN \
 # enable conda env
 USER ${USERNAME}
 RUN cd ${HOME} \
-    && echo 'bash -c source /home/user/zephyrproject/zephyr/zephyr-env.sh' >> ~/.bashrc \
-    && echo 'conda activate ${CONDA_ENV}' >> ~/.bashrc
+    && echo "bash -c 'source /home/user/zephyrproject/zephyr/zephyr-env.sh'" >> ~/.bashrc \
+    && echo "conda activate ${CONDA_ENV}" >> ~/.bashrc
 WORKDIR /home/user/zephyrproject/zephyr
 
