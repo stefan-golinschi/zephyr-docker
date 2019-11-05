@@ -80,6 +80,14 @@ RUN \
     && west update \
     && pip install -r zephyr/scripts/requirements.txt
 
+# install Segger J-Link
+USER root
+COPY resources/nRF-Command-Line-Tools_10_4_1_Linux-amd64.tar.gz /opt/nRF-Command-Line-Tools_10_4_1_Linux-amd64.tar.gz
+RUN \
+    mkdir -p /opt/nRF-Command-Line-Tools \
+    && tar -xzf /opt/nRF-Command-Line-Tools_10_4_1_Linux-amd64.tar.gz -C /opt/nRF-Command-Line-Tools \
+    && dpkg -i /opt/nRF-Command-Line-Tools/JLink_Linux_V650b_x86_64.deb \
+    && dpkg -i /opt/nRF-Command-Line-Tools/nRF-Command-Line-Tools_10_4_1_Linux-amd64.deb
 
 # on login:
 # source zephyr env

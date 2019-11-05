@@ -14,7 +14,9 @@ HOSTNAME="zephyr"
 docker run \
 --rm \
 -it \
+--device=/dev/ttyACM0 \
 --hostname=${HOSTNAME} \
+--privileged \
 ${HOSTNAME}-dev
 ```
 
@@ -33,3 +35,7 @@ west build -b <board_name> samples/hello_world
 west build -t menuconfig
 ```
 
+## Flash using west
+```
+west flash --erase
+```
