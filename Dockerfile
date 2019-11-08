@@ -2,10 +2,6 @@ FROM ubuntu:18.04
 
 LABEL maintainer="stefan.golinschi@gmail.com"
 
-# update system
-RUN apt-get update \
-    && apt-get upgrade -y
-
 # environment
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV PATH /opt/conda/bin:$PATH
